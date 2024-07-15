@@ -1,0 +1,79 @@
+//Key
+$font-stack-secondary: "Helvetica", sans-serif;
+
+//SET-UP SITE
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f3e5ce;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  font: {
+    family: $font-stack-secondary;
+  }
+}
+
+//NAVBAR
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+  background-color: #351c2b !important;
+}
+
+// Definizione della variabile per la larghezza massima dei dispositivi mobili
+$mobile-max-width: 767px;
+
+// Media query per rimuovere fixed-top solo sui dispositivi mobili
+@media (max-width: $mobile-max-width) {
+  .fixed-top {
+    position: static;
+  }
+}
+
+//LINEA SEPARAATRICE
+.sfondo-linea {
+  background-color: #ffc7a1;
+  .linea-separatrice {
+    height: 2px;
+    width: 25%;
+    background-color: #7f2204;
+    border: none;
+    margin: 40px auto;
+    box-shadow: 0 0 10px #7f2204, 0 0 20px #ff7f00, 0 0 30px #ff7f00; /* Effetto neon */
+  }
+}
+
+.linea-separatrice-due {
+  height: 3px;
+  width: 25%;
+  background-color: #7f2204;
+  border: none;
+  margin: 40px auto;
+  box-shadow: 0 0 10px #5a1803, 0 0 20px #ff7f00, 0 0 30px #cd6700; /* Effetto neon */
+}
+
+//FOOTER
+
+.footer-container {
+  width: 100%;
+  height: 600px;
+  background-color: #351c2b;
+  .contact-form {
+    .title-section-form {
+      font-family: "Oleo Script", system-ui;
+      color: white;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 50px;
+    }
+
+    .title-section-option-form {
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+    }
+  }
+}

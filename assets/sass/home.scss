@@ -1,0 +1,131 @@
+//Key
+$font-stack-primary: "Helvetica", sans-serif;
+
+//HEADER
+
+.header {
+  padding-top: 80px;
+  background-image: url(/assets/img/svg/blob-scene-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+  .introduction {
+    .benvenuto {
+      align-self: center;
+      color: #ffffff;
+      text-shadow: 1px 0px 10px #811f39;
+      font-family: "Oleo Script", system-ui;
+      font-weight: 700;
+      font-style: normal;
+      .saluto {
+        text-align: center;
+        font-size: 70px;
+      }
+      .saluto-due {
+        text-align: center;
+        font-size: 45px;
+      }
+    }
+  }
+}
+
+//PRESENTATION
+
+.presentazione {
+  color: #7f2204;
+  position: relative;
+  z-index: 1;
+  background-color: #ffc7a1;
+  background-size: cover;
+
+  .titolo-presentazione {
+    margin-top: 40px;
+    text-align: center;
+    font-family: "Oleo Script", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+  }
+  .testo-presentazione {
+    margin: 15px 200px 40px;
+    font-family: $font-stack-primary;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+
+  .btn-custom {
+    background-color: #351c2b; // Colore personalizzato
+    border-color: #351c2b; // Colore del bordo personalizzato
+    padding: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: $font-stack-primary;
+  }
+  .btn-custom:hover {
+    background-color: #ac528abc;
+    border-color: #dda7c9;
+  }
+}
+
+//SKILL
+.container-sfondo {
+  background-image: linear-gradient(
+    0deg,
+    rgba(243, 229, 206, 1) 8%,
+    rgba(255, 199, 161, 1) 88%
+  );
+  background-size: cover;
+
+  .title-section-skill {
+    font-family: "Oleo Script", system-ui;
+    color: #7f2204;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+  }
+
+  .container-skill {
+    .skill {
+      width: 50vh;
+      height: 50vh;
+      background-color: #ffffff43;
+
+      .title-skill {
+        font-family: "Oleo Script", system-ui;
+        color: #351c2b;
+      }
+    }
+  }
+}
+
+//PROJECT
+
+.project-container {
+  background-image: url(/assets/img/svg/layered-waves-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  .title-section-projects {
+    font-family: "Oleo Script", system-ui;
+    color: #7f2204;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+  }
+}
+
+//RESPONSIVE
+@media (min-width: 390px) {
+  .presentazione {
+    .contenitore-presentazione {
+      .titolo-presentazione {
+        margin-top: 20px;
+      }
+      .testo-presentazione {
+        margin: 10px 10px 20px;
+      }
+    }
+  }
+}

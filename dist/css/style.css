@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f3e5ce;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  font-family: "Helvetica", sans-serif;
+}
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+  background-color: #351c2b !important;
+}
+
+@media (max-width: 767px) {
+  .fixed-top {
+    position: static;
+  }
+}
+.sfondo-linea {
+  background-color: #ffc7a1;
+}
+.sfondo-linea .linea-separatrice {
+  height: 2px;
+  width: 25%;
+  background-color: #7f2204;
+  border: none;
+  margin: 40px auto;
+  box-shadow: 0 0 10px #7f2204, 0 0 20px #ff7f00, 0 0 30px #ff7f00; /* Effetto neon */
+}
+
+.linea-separatrice-due {
+  height: 3px;
+  width: 25%;
+  background-color: #7f2204;
+  border: none;
+  margin: 40px auto;
+  box-shadow: 0 0 10px #5a1803, 0 0 20px #ff7f00, 0 0 30px #cd6700; /* Effetto neon */
+}
+
+.footer-container {
+  width: 100%;
+  height: 600px;
+  background-color: #351c2b;
+}
+.footer-container .contact-form .title-section-form {
+  font-family: "Oleo Script", system-ui;
+  color: white;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+}
+.footer-container .contact-form .title-section-option-form {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
