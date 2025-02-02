@@ -4,11 +4,11 @@ name: Deploy static content to Pages
 on:
   push:
     branches:
-      - main # Si attiva al push su main
+      - main  # Si attiva al push su main
   pull_request:
     branches:
-      - main # Si attiva su PR verso main
-  workflow_dispatch: # Consente di avviare il workflow manualmente
+      - main  # Si attiva su PR verso main
+  workflow_dispatch:  # Consente di avviare il workflow manualmente
 
 permissions:
   contents: read
@@ -35,7 +35,7 @@ jobs:
       - name: Compile SCSS to CSS
         run: sass assets/sass:dist/css --no-source-map
 
-      - name: Copy all necessary files
+      - name: Ensure all assets are included
         run: |
           mkdir -p public
           cp -r assets public/assets
@@ -43,13 +43,15 @@ jobs:
           cp index.html public/index.html
           touch public/.nojekyll  # Evita problemi con file underscore
 
-      - name: List files before deployment (debug)
-        run: ls -R public # Mostra la struttura della cartella prima del deploy
+      - name: Debug: List files before deployment
+        run: |
+          echo "🔍 Contenuto della cartella pubblicata:"
+          ls -R public  # Mostra la struttura della cartella prima del deploy
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "public" # Pubblica solo la cartella 'public'
+          path: "public"  # Pubblica solo la cartella 'public'
 
   deploy:
     environment:
