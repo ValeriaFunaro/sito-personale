@@ -3,7 +3,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"]  # Si attiva al push su main
+    branches: ["main"] # Si attiva al push su main
   workflow_dispatch:
 
 permissions:
@@ -31,13 +31,18 @@ jobs:
       - name: Compile SCSS to CSS
         run: sass assets/sass:dist/css --no-source-map
 
-      - name: Prepare GitHub Pages deployment
-        run: touch .nojekyll  # Evita problemi con file nascosti
+      - name: Ensure all assets are included
+        run: |
+          mkdir -p public
+          cp -r assets public/assets
+          cp -r dist public/dist
+          cp index.html public/index.html
+          touch public/.nojekyll  # Evita problemi con underscore nei file
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # Ora pubblica l'intera root
+          path: "public" # Pubblica solo la cartella 'public'
 
   deploy:
     environment:
