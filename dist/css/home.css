@@ -1,6 +1,6 @@
 .header {
   padding-top: 80px;
-  background-image: url(/assets/img/svg/blob-scene-haikei.svg);
+  background-image: url(/sito-personale/assets/img/svg/blob-scene-haikei.svg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 800px;
@@ -80,7 +80,7 @@
 }
 
 .project-container {
-  background-image: url(/assets/img/svg/layered-waves-haikei.svg);
+  background-image: url(/sito-personale/assets/img/svg/layered-waves-haikei.svg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 900px;
