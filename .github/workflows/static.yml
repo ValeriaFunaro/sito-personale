@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3 # Non specifica una versione
+        uses: actions/setup-node@v3
 
       - name: Install Sass
         run: npm install -g sass
@@ -31,13 +31,20 @@ jobs:
       - name: Compile SCSS to CSS
         run: sass assets/sass:dist/css --no-source-map
 
+      - name: Copy assets to Home/
+        run: |
+          mkdir -p Home/assets
+          cp -r assets/* Home/assets/
+          mkdir -p Home/dist
+          cp -r dist/* Home/dist/
+
       - name: Prepare GitHub Pages deployment
-        run: touch Home/.nojekyll # Necessario per evitare problemi con file nascosti
+        run: touch Home/.nojekyll # Evita problemi con file nascosti
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "Home" # Pubblica solo la cartella Home/
+          path: "Home" # Pubblica Home/ con tutti gli assets
 
   deploy:
     environment:
