@@ -3,8 +3,12 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"]  # Si attiva al push su main
-  workflow_dispatch:
+    branches:
+      - main  # Si attiva quando fai push su main
+  pull_request:
+    branches:
+      - main  # Si attiva su PR verso main
+  workflow_dispatch:  # Consente di eseguire manualmente il workflow da GitHub
 
 permissions:
   contents: read
