@@ -4,11 +4,11 @@ name: Deploy static content to Pages
 on:
   push:
     branches:
-      - main  # Si attiva al push su main
+      - main # Si attiva al push su main
   pull_request:
     branches:
-      - main  # Si attiva su PR verso main
-  workflow_dispatch:  # Consente di avviare il workflow manualmente
+      - main # Si attiva su PR verso main
+  workflow_dispatch: # Consente di avviare il workflow manualmente
 
 permissions:
   contents: read
@@ -35,7 +35,7 @@ jobs:
       - name: Compile SCSS to CSS
         run: sass assets/sass:dist/css --no-source-map
 
-      - name: Ensure all assets are included
+      - name: Copy all necessary files
         run: |
           mkdir -p public
           cp -r assets public/assets
@@ -43,23 +43,17 @@ jobs:
           cp index.html public/index.html
           touch public/.nojekyll  # Evita problemi con file underscore
 
-      - name: Debug: List files before deployment
-        run: |
-          echo "🔍 Contenuto della cartella pubblicata:"
-          ls -R public  # Mostra la struttura della cartella prima del deploy
+      - name: List files before deployment
+        run: ls -R public # Debug: Mostra la struttura della cartella prima del deploy
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "public"  # Pubblica solo la cartella 'public'
+          path: "public" # Pubblica solo la cartella 'public'
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
