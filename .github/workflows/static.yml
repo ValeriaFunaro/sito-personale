@@ -3,7 +3,7 @@ name: Deploy static content to Pages
 
 on:
   push:
-    branches: ["main"] # Si attiva al push su main
+    branches: ["main"]  # Si attiva al push su main
   workflow_dispatch:
 
 permissions:
@@ -39,10 +39,13 @@ jobs:
           cp index.html public/index.html
           touch public/.nojekyll  # Evita problemi con underscore nei file
 
+      - name: Debug: List files before deployment
+        run: ls -R public  # Mostra la struttura della cartella per verificare che tutto sia incluso
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "public" # Pubblica solo la cartella 'public'
+          path: 'public'  # Pubblica solo la cartella 'public'
 
   deploy:
     environment:
